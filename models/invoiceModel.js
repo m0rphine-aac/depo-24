@@ -14,6 +14,13 @@ const invoiceSchema = mongoose.Schema({
   },
 });
 
+// QUERY MIDDLEWARE
+invoiceSchema.pre(/^find/, function (next) {
+  this.populate({ path: 'products' });
+
+  next();
+});
+
 const Invoice = mongoose.model('Invoice', invoiceSchema);
 
 module.exports = Invoice;

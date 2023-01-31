@@ -19,9 +19,14 @@ const productSchema = mongoose.Schema({
   hsnCode: { type: 'String', trim: true, required: [true, 'A product must have a HSN Code!'] },
   gstSlab: {
     type: 'Number',
-    enum: { values: [0, 9, 18], default: 18, message: 'GST is either: 0, 9 or 18' },
+    enum: [0, 9, 18],
+    default: 9,
   },
   unit: { type: 'String', trim: true, default: 'Pcs' },
+  qty: {
+    type: Number,
+    default: 1,
+  },
 });
 
 const Product = mongoose.model('Product', productSchema);
