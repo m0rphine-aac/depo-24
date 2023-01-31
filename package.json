@@ -14,6 +14,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "easyinvoice": "^2.3.3",
+    "ejs": "^3.1.8",
     "express": "^4.18.2",
     "mongoose": "^5.13.15",
     "morgan": "^1.10.0"

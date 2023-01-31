@@ -34,13 +34,9 @@ module.exports.getInvoice = catchAsync(async (req, res, next) => {
     };
   });
 
-  //Create your invoice! Easy!
+  //Create Invoice
   const result = await easyinvoice.createInvoice(generatePDFData(products));
-  fs.writeFileSync(
-    `${__dirname}/../dev-data/invoices/pdf/invoice-${Date.now()}.pdf`,
-    result.pdf,
-    'base64'
-  );
+  fs.writeFileSync(`${__dirname}/../public/pdfs/invoice-${Date.now()}.pdf`, result.pdf, 'base64');
 
   res.status(200).json({
     status: 'success',
